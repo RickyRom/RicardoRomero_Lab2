@@ -135,13 +135,132 @@ public class RicardoRomero_Lab2 {
                     }
                 }
                 JOptionPane.showMessageDialog(null, p);
-                
+
                 pos = Integer.parseInt(JOptionPane.showInputDialog(" " + "Elija la posicion de la clase a matricular"));
                 JOptionPane.showMessageDialog(null, "Clase Matriculada Exitosamente");
             }
 
             if (op.equals("c")) {
+                String opcion = "";
+                while (!opcion.equals("c")) {
+                    opcion = JOptionPane.showInputDialog(""
+                            + "a-Login Maestro\n"
+                            + "b-Login Alumno\n"
+                            + "c-Regresar\n"
+                            + "");
+                    if (opcion.equals("a")) {
+                        String name, Pword;
+                        int i;
+                        String nombre;
+                        String titulo;
+                        String maestria;
+                        int salario;
+                        String usuario;
+                        String contraseña;
+                        boolean es = false;
 
+                        do {
+                            name = JOptionPane.showInputDialog("Ingrese su usuario");
+                            Pword = JOptionPane.showInputDialog("Ingrese su contraseña");
+                            for (Object o : m) {
+                                if (o instanceof maestros) {
+                                    if (((maestros) o).getUsuario().equals(name) && ((maestros) o).getContraseña().equals(Pword)) {
+                                        es = true;
+                                        JOptionPane.showMessageDialog(null, "SESION INICIADA EXITOSAMENTE");
+                                        JOptionPane.showMessageDialog(null, "BIENVENIDO: " + name);
+                                    } else {
+                                        JOptionPane.showMessageDialog(null, "INGRESE UN USUARIO CORRECTO");
+                                        JOptionPane.showMessageDialog(null, "SESION NO PUDO SER INICIADA");
+                                    }
+                                }
+                            }
+                        } while (es == false);
+                        String opci = "";
+                        while (!opci.equals("c")) {
+                            opci = JOptionPane.showInputDialog(""
+                                    + "a-Modificar Datos\n"
+                                    + "b-Listar Alumnos\n"
+                                    + "c-Regresar\n"
+                                    + "");
+                            if (opci.equals("a")) {
+                                i = Integer.parseInt(JOptionPane.showInputDialog("pocision a modificar"));
+                                nombre = JOptionPane.showInputDialog("Ingrese nuevo Nombre: ");
+                                titulo = JOptionPane.showInputDialog("Ingrese nuevo Titulo: ");
+                                maestria = JOptionPane.showInputDialog("Ingrese nueva Maestria: ");
+                                salario = Integer.parseInt(JOptionPane.showInputDialog("Ingrese nuevo Salario: "));
+                                usuario = JOptionPane.showInputDialog("Elija nuevo Usuario: ");
+                                contraseña = JOptionPane.showInputDialog("Elija nueva Contraseña: ");
+
+                                ((maestros) m.get(i)).setNombre(nombre);
+                                ((maestros) m.get(i)).setTitulo(titulo);
+                                ((maestros) m.get(i)).setMaestria(maestria);
+                                ((maestros) m.get(i)).setSalario(salario);
+                                ((maestros) m.get(i)).setUsuario(usuario);
+                                ((maestros) m.get(i)).setContraseña(contraseña);
+                            }
+
+                            if (opci.equals("b")) {
+
+                            }
+                        }
+                    }
+
+                    if (opcion.equals("b")) {
+                        String name, Pword;
+                        boolean es = false;
+                        int i;
+                        String nombre;
+                        int numero_cuenta, pos;
+                        String carrera;
+                        int edad;
+                        double dinero_dispo;
+                        String usuario;
+                        String contra;
+
+                        do {
+                            name = JOptionPane.showInputDialog("Ingrese su usuario");
+                            Pword = JOptionPane.showInputDialog("Ingrese su contraseña");
+                            for (Object o : a) {
+                                if (o instanceof alumnos) {
+                                    if (((alumnos) o).getUsuario().equals(name) && ((alumnos) o).getContra().equals(Pword)) {
+                                        es = true;
+                                        JOptionPane.showMessageDialog(null, "SESION INICIADA EXITOSAMENTE");
+                                        JOptionPane.showMessageDialog(null, "BIENVENIDO: " + name);
+                                    } else {
+                                        JOptionPane.showMessageDialog(null, "INGRESE UN USUARIO CORRECTO");
+                                        JOptionPane.showMessageDialog(null, "SESION NO PUDO SER INICIADA");
+                                    }
+                                }
+                            }
+                        } while (es == false);
+                        String option = "";
+                        while (!option.equals("d")) {
+                            option = JOptionPane.showInputDialog(""
+                                    + "a-Modificar Datos\n"
+                                    + "b-Listar clases\n"
+                                    + "c-Regresar\n"
+                                    + "");
+                            if (option.equals("a")) {
+                                i = Integer.parseInt(JOptionPane.showInputDialog("pocision a modificar"));
+                                nombre = JOptionPane.showInputDialog("Ingresar nuevo Nombre del Alumno: ");
+                                numero_cuenta = Integer.parseInt(JOptionPane.showInputDialog("Ingresar nuevo numero de Cuenta: "));
+                                carrera = JOptionPane.showInputDialog("Ingresar nueva Carrera: ");
+                                edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese nueva Edad: "));
+                                dinero_dispo = Double.parseDouble(JOptionPane.showInputDialog("Ingresar nueva cantidad de Dinero: "));
+                                usuario = JOptionPane.showInputDialog("Ingresar nuevo Usuario: ");
+                                contra = JOptionPane.showInputDialog("Ingresar nueva Contraseña: ");
+                                
+                                ((alumnos)a.get(i)).setNombre(nombre);
+                                ((alumnos)a.get(i)).setNumero_cuenta(numero_cuenta);
+                                ((alumnos)a.get(i)).setCarrera(carrera);
+                                ((alumnos)a.get(i)).setEdad(edad);
+                                ((alumnos)a.get(i)).setDinero_dispo(dinero_dispo);
+                                ((alumnos)a.get(i)).setUsuario(usuario);
+                                ((alumnos)a.get(i)).setContra(contra);
+                            }
+                        }
+                    }
+                }
             }
 
             if (op.equals("d")) {
@@ -176,4 +295,5 @@ public class RicardoRomero_Lab2 {
             }
         }
     }
+
 }
