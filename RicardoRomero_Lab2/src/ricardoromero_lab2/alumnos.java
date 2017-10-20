@@ -20,7 +20,7 @@ public class alumnos {
     private String usuario;
     private String contra;
     ArrayList<String> listas = new ArrayList();
-    ArrayList<mensajes> buzon = new ArrayList();
+    ArrayList<Mensaje> buzon = new ArrayList();
 
     public alumnos() {
     }
@@ -99,11 +99,11 @@ public class alumnos {
         this.listas = listas;
     }
 
-    public ArrayList<mensajes> getBuzon() {
+    public ArrayList<Mensaje> getBuzon() {
         return buzon;
     }
 
-    public void setBuzon(ArrayList<mensajes> buzon) {
+    public void setBuzon(ArrayList<Mensaje> buzon) {
         this.buzon = buzon;
     }
 
