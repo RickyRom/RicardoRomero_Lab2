@@ -5,6 +5,9 @@
  */
 package ricardoromero_lab2;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ricky
@@ -15,7 +18,77 @@ public class RicardoRomero_Lab2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        ArrayList<maestros> m = new ArrayList();
+        ArrayList<clases> c = new ArrayList();
+        ArrayList<alumnos> a = new ArrayList();
+        String op = "";
+        while (!op.equals("e")) {
+            op = JOptionPane.showInputDialog(""
+                    + "a-Administracion\n"
+                    + "b-Matricula\n"
+                    + "c-Login\n"
+                    + "d-listar\n"
+                    + "e-salir\n"
+                    + "");
+            if (op.equals("a")) {
+                if (c.isEmpty()) {
+                    String nombre;
+                    String seccion;
+                    int cant_max_etudiant;
+                    String maestro;
+                    int unid_valorativas;
+
+                    nombre = JOptionPane.showInputDialog("Ingresar Nombre: ");
+                    seccion = JOptionPane.showInputDialog("Ingresar Sección: ");
+                    cant_max_etudiant = Integer.parseInt(JOptionPane.showInputDialog("Ingresar Máximo de Estudiantes: "));
+                    maestro = JOptionPane.showInputDialog("Ingresra Maestro: ");
+                    unid_valorativas = Integer.parseInt(JOptionPane.showInputDialog("Ingresar Unidades Valorativas: "));
+
+                    c.add(new clases(nombre, seccion, cant_max_etudiant, maestro, unid_valorativas));
+                    JOptionPane.showMessageDialog(null, "Clase Agregada Exitosamente");
+                } else {
+                    String opn = "";
+                    while (!opn.equals("d")) {
+                        opn = JOptionPane.showInputDialog(""
+                                + "a-Agregar Maestro\n"
+                                + "b-Matricula\n"
+                                + "c-Login\n"
+                                + "");
+                        if (opn.equals("a")) {
+                            String nombre;
+                            String titulo;
+                            String maestria;
+                            int salario;
+                            String usuario;
+                            String contraseña;
+                            String cant_max_clases;
+                            
+                            nombre = JOptionPane.showInputDialog("Ingrese su Nombre: ");
+                            titulo = JOptionPane.showInputDialog("Ingrese su Titulo: ");
+                            maestria = JOptionPane.showInputDialog("Ingrese su Maestria: ");
+                            salario = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su Salario: "));
+                            usuario = JOptionPane.showInputDialog("Elija un Usuario: ");
+                            contraseña = JOptionPane.showInputDialog("Elija una Contraseña: ");
+                            cant_max_clases = JOptionPane.showInputDialog("Seleccione la maxima cantidad de clases: ");
+                            
+                            m.add(new maestros(nombre, titulo, maestria, salario, usuario, contraseña, cant_max_clases));
+                            JOptionPane.showMessageDialog(null, "Maestro Creado Exitosamente");
+                        }
+                    }
+
+                }
+                if (op.equals("b")) {
+
+                }
+
+                if (op.equals("c")) {
+
+                }
+
+                if (op.equals("d")) {
+
+                }
+            }
+        }
     }
-    
 }
