@@ -110,13 +110,13 @@ public class RicardoRomero_Lab2 {
             }
             if (op.equals("b")) {
                 String nombre;
-                int numero_cuenta;
+                int numero_cuenta, pos;
                 String carrera;
                 int edad;
                 double dinero_dispo;
                 String usuario;
                 String contra;
-                
+
                 nombre = JOptionPane.showInputDialog("Ingresar Nombre del Alumno: ");
                 numero_cuenta = Integer.parseInt(JOptionPane.showInputDialog("Ingresar numero de Cuenta: "));
                 carrera = JOptionPane.showInputDialog("Ingresar su Carrera: ");
@@ -124,10 +124,20 @@ public class RicardoRomero_Lab2 {
                 dinero_dispo = Double.parseDouble(JOptionPane.showInputDialog("Ingresar su cantidad de Dinero: "));
                 usuario = JOptionPane.showInputDialog("Ingresar un Usuario: ");
                 contra = JOptionPane.showInputDialog("Ingresar una Contraseña: ");
-                
+
                 a.add(new alumnos(nombre, numero_cuenta, carrera, edad, dinero_dispo, usuario, contra));
                 JOptionPane.showMessageDialog(null, "Ha sido Registrado Existosamente");
+
+                String p = "";
+                for (clases t : c) {
+                    if (t instanceof clases) {
+                        p += c.indexOf(t) + "" + "-" + t + "\n";
+                    }
+                }
+                JOptionPane.showMessageDialog(null, p);
                 
+                pos = Integer.parseInt(JOptionPane.showInputDialog(" " + "Elija la posicion de la clase a matricular"));
+                JOptionPane.showMessageDialog(null, "Clase Matriculada Exitosamente");
             }
 
             if (op.equals("c")) {
@@ -156,7 +166,13 @@ public class RicardoRomero_Lab2 {
             }
 
             if (op.equals("f")) {
-
+                String p = "";
+                for (alumnos t : a) {
+                    if (t instanceof alumnos) {
+                        p += a.indexOf(t) + "" + "-" + t + "\n";
+                    }
+                }
+                JOptionPane.showMessageDialog(null, p);
             }
         }
     }
