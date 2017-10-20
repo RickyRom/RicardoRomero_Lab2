@@ -103,5 +103,4 @@ public class maestros {
         return "maestros{" + "nombre=" + nombre + ", titulo=" + titulo + ", maestria=" + maestria + ", salario=" + salario + ", usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", cant_max_clases=" + cant_max_clases + ", lista=" + lista + '}';
     }
     
-    
 }
