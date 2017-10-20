@@ -44,7 +44,7 @@ public class RicardoRomero_Lab2 {
                     maestro = JOptionPane.showInputDialog("Ingresra Maestro: ");
                     unid_valorativas = Integer.parseInt(JOptionPane.showInputDialog("Ingresar Unidades Valorativas: "));
 
-                    c.add(new clases(nombre, seccion, cant_max_etudiant, maestro, unid_valorativas));
+                    c.add(new clases(nombre, seccion, cant_max_etudiant, null, unid_valorativas));
                     JOptionPane.showMessageDialog(null, "Clase Agregada Exitosamente");
                 } else {
                     String opn = "";
@@ -58,10 +58,11 @@ public class RicardoRomero_Lab2 {
                             String nombre;
                             String titulo;
                             String maestria;
-                            int salario;
+                            int salario, clases2;
                             String usuario;
                             String contraseña;
-                            String cant_max_clases;
+                            int cant_max_clases;
+                            maestros maestro;
                             
                             nombre = JOptionPane.showInputDialog("Ingrese su Nombre: ");
                             titulo = JOptionPane.showInputDialog("Ingrese su Titulo: ");
@@ -69,10 +70,18 @@ public class RicardoRomero_Lab2 {
                             salario = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su Salario: "));
                             usuario = JOptionPane.showInputDialog("Elija un Usuario: ");
                             contraseña = JOptionPane.showInputDialog("Elija una Contraseña: ");
-                            cant_max_clases = JOptionPane.showInputDialog("Seleccione la maxima cantidad de clases: ");
+                            cant_max_clases = Integer.parseInt(JOptionPane.showInputDialog("Seleccione la maxima cantidad de clases: "));
                             
-                            m.add(new maestros(nombre, titulo, maestria, salario, usuario, contraseña, cant_max_clases));
-                            JOptionPane.showMessageDialog(null, "Maestro Creado Exitosamente");
+                            maestro = new maestros(nombre, titulo, maestria, salario, usuario, contraseña, cant_max_clases);
+                            clases2 = Integer.parseInt(JOptionPane.showInputDialog("Cuantas clases Imparte"));
+                            if(clases2 > cant_max_clases) {
+                                JOptionPane.showMessageDialog(null, "Se Excede de Clases");
+                            }else{
+                                for (int i = 0; i < clases2; i++) {
+                                    String seccion;
+                                    seccion = JOptionPane.showInputDialog(null, "Numero de Seccion: ");
+                                }
+                            }
                         }
                     }
 

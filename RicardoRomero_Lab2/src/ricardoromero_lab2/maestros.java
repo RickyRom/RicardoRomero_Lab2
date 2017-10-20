@@ -18,13 +18,13 @@ public class maestros {
     private int salario;
     private String usuario;
     private String contraseña;
-    private String cant_max_clases;
+    private int cant_max_clases;
     ArrayList<String> lista = new ArrayList();
 
     public maestros() {
     }
 
-    public maestros(String nombre, String titulo, String maestria, int salario, String usuario, String contraseña, String cant_max_clases) {
+    public maestros(String nombre, String titulo, String maestria, int salario, String usuario, String contraseña, int cant_max_clases) {
         this.nombre = nombre;
         this.titulo = titulo;
         this.maestria = maestria;
@@ -82,11 +82,11 @@ public class maestros {
         this.contraseña = contraseña;
     }
 
-    public String getCant_max_clases() {
+    public int getCant_max_clases() {
         return cant_max_clases;
     }
 
-    public void setCant_max_clases(String cant_max_clases) {
+    public void setCant_max_clases(int cant_max_clases) {
         this.cant_max_clases = cant_max_clases;
     }
 
